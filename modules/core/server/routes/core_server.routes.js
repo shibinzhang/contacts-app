@@ -10,5 +10,7 @@ module.exports = function (app) {
     
     app 
         .route('/api/contact')
-        .get(c.getContacts);
+        .get(c.getContacts)
+        .post(c.createContact);
+
 };

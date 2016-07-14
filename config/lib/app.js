@@ -19,7 +19,6 @@ module.exports.loadRoutes = function (app){
 
 module.exports.start = function (){
     var app = express.init ();
-
     //routes registration
     this.loadRoutes(app);
 
