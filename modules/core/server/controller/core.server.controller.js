@@ -55,3 +55,16 @@ module.exports.getContactId = function (req, res) {
 
     }
 }
+
+module.exports.updateContact = function (req, res){
+
+    var newContact = req.body;
+    if (!newContact){
+        res.status (400);
+        res.end ("No contact need to be updated");
+    } else {
+        res.status (200);
+        newContact = mockService.updateContact (newContact);
+        res.end();
+    }
+}

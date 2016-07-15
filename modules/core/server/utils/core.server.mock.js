@@ -53,17 +53,41 @@ module.exports.deleteContact = function (contact){
         //}
     }
 }
-
+// get contact ID by firstName and LastName
 module.exports.getContactId = function (contact) {
-
+    var checkId=false;
     for (var i=0; i<contacts.length; i++){
-        if (JSON.stringify(contacts[i]) == JSON.stringify(contact)){
-            console.log ("The contact Id is "+ contacts[i].Id);
-        } else {
-            //console.log( "Error, there is no such a contact in the List");
+        if (contacts[i].firstName == contact.firstName && contacts[i].lastName == contact.lastName){
+            console.log ("The contact Id is "+ contacts[i].id);
+            checkId=true;
+            break;
         }
     }
+    if (checkId == false){
+        console.log( "Error, there is no such a contact in the List1");
+    }
 }
+
+// update a contact from the input of the postman, where the id matches
+
+module.exports.updateContact = function (contact){
+    var updateID = false;
+    for (var i=0; i<contacts.length; i++){
+        if (contacts[i].id == contact.id) {
+            for (var key in contact) {
+                contacts[i][key] = contact[key];
+            }
+            updateID = true;
+            break;
+        }
+
+    }
+    if (updateID == false){
+        console.log( "Error, there is no such a contact in the List");
+    }
+
+}
+
 
 
 

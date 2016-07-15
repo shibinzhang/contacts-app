@@ -13,7 +13,8 @@ module.exports = function (app) {
         .get(c.getContacts)
         .post(c.createContact)
         .delete(c.deleteContact)
-        .put (c.getContactId)
+        //.put (c.getContactId)
+        .put(c.updateContact)
 
 
 };
