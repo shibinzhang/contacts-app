@@ -26,3 +26,32 @@ module.exports.createContact = function (req,res){
         res.end ("Error: couldn't save contact")
     }
 }
+
+module.exports.deleteContact = function (req, res) {
+    var delcontact = req.body;
+    if (!delcontact) {
+        res.status (400);
+        res.end ("Error, no defined contact to be removed");
+    }
+
+    else {
+        res.status (200);
+        delcontact = mockService.deleteContact(delcontact);
+        //console.log('hello1');
+        res.end();
+    }
+}
+
+module.exports.getContactId = function (req, res) {
+    var novaContact = req.body;
+    if (!novaContact){
+        res.status (400);
+        res.end ("Error, no contact to be updated");
+    }
+    else {
+        res.status (200);
+        novaContact = mockService.getContactId (novaContact);
+        res.end ();
+
+    }
+}

@@ -36,6 +36,38 @@ module.exports.saveContact = function (contact){
     contacts.push(cloneContact);
     return cloneContact;
 }
+module.exports.getContacts = contacts;
+
+// delete a contact with Postman
+
+module.exports.deleteContact = function (contact){
+
+    for (var i=0; i<contacts.length; i++){
+
+        if (JSON.stringify(contacts[i]) == JSON.stringify(contact)) {
+            contacts.splice(i,1);
+            i--;
+        }
+        //else {
+            //console.log ("error, please confirm the contact are in the origin list")
+        //}
+    }
+}
+
+module.exports.getContactId = function (contact) {
+
+    for (var i=0; i<contacts.length; i++){
+        if (JSON.stringify(contacts[i]) == JSON.stringify(contact)){
+            console.log ("The contact Id is "+ contacts[i].Id);
+        } else {
+            //console.log( "Error, there is no such a contact in the List");
+        }
+    }
+}
+
+
+
+
 
 module.exports.getContacts = contacts;
 

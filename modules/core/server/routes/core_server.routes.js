@@ -11,6 +11,9 @@ module.exports = function (app) {
     app 
         .route('/api/contact')
         .get(c.getContacts)
-        .post(c.createContact);
+        .post(c.createContact)
+        .delete(c.deleteContact)
+        .put (c.getContactId)
+
 
 };
